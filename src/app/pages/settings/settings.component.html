@@ -1,0 +1,63 @@
+<h1>Settings</h1>
+
+<div class="toast-pf toast-pf-max-width toast-pf-top-right alert alert-success alert-dismissable hidden">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+    <span class="pficon pficon-close"></span>
+  </button>
+  <span class="pficon pficon-ok"></span>
+  The server configuration changed.
+</div>
+
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="help-1">Port
+    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>." data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+    <div class="col-sm-9">
+      <select id="help-1" class="combobox form-control" [(ngModel)]="settings.port" (change)="saveSettings()">
+        <option *ngFor="let port of ports" value="{{ port.value }}">{{ port.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="help-2">Interface
+    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>." data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+    <div class="col-sm-9">
+      <select id="help-2" class="combobox form-control" [(ngModel)]="settings.nic" (change)="saveSettings()">
+        <option *ngFor="let nic of nics" value="{{ nic.id }}">{{ nic.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="help-3">Timeout
+    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>." data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+    <div class="col-sm-9">
+      <input id="help-3" type="number" class="form-control" value="4000" [(ngModel)]="settings.timeout" (change)="saveSettings()">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="help-4">Language
+    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>." data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+    <div class="col-sm-9">
+      <select id="help-4" class="combobox form-control" [(ngModel)]="settings.language">
+        <option *ngFor="let language of languages" value="{{ language.value }}" (change)="saveSettings()">{{ language.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="help-5">Analytics
+    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>." data-placement="top"><span class="fa fa-info-circle"></span></a></label>
+    <div class="col-sm-9">
+      <input id="help-5" type="checkbox" [(ngModel)]="settings.analytics" (change)="saveSettings()">
+      Yes, I agree sending anonymized crash-reports to a remote server.
+    </div>
+  </div>
+</div>
+
+<div class="toast-pf alert alert-success toast-pf-top-right" *ngIf="statusMessage">
+  <span class="pficon pficon-ok"></span>
+  The configuration was successfully changed.
+</div>

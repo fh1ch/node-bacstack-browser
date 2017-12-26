@@ -1,16 +1,44 @@
 {
   "name": "node-bacstack-browser",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "0.0.1",
+  "description": "A BACnet browser using Electron, Angular and Node BACstack.",
+  "main": "main.js",
   "scripts": {
+    "changelog": "commitlint --from=master",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "electron . | ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fh1ch/node-bacstack-browser.git"
+  },
+  "keywords": [
+    "bacnet",
+    "bacstack",
+    "building",
+    "automation"
+  ],
+  "author": {
+    "name": "Fabio Huser",
+    "email": "fabio@fh1.ch"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fh1ch/node-bacstack-browser/issues"
+  },
+  "homepage": "https://github.com/fh1ch/node-bacstack-browser#readme",
   "dependencies": {
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
@@ -21,7 +49,14 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "async": "^2.6.0",
+    "bacstack": "0.0.1-beta.13",
     "core-js": "^2.4.1",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "ip": "^1.1.5",
+    "lodash": "^4.17.4",
+    "patternfly": "^3.32.1",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
@@ -29,10 +64,14 @@
     "@angular/cli": "1.6.2",
     "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
+    "@commitlint/cli": "^5.2.5",
+    "@commitlint/config-conventional": "^5.2.3",
+    "@commitlint/travis-cli": "^5.2.5",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "electron": "^1.7.10",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",

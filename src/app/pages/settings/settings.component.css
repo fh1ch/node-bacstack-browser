@@ -1,0 +1,14 @@
+@keyframes intro {
+  from {
+    opacity: 0;
+    top: -200px;
+  }
+  to {
+    opacity: 0.9;
+    top: 12px;
+  }
+}
+
+.toast-pf {
+  animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}

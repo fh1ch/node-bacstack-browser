@@ -1,0 +1,124 @@
+<div>
+  <div style="background: #f5f5f5; border-bottom: 1px solid #e3e3e3; padding: 10px 0; margin: 0 -20px;">
+    <span style="margin: 0 20px;">Browse</span>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row toolbar-pf">
+      <div class="col-sm-12">
+        <form class="toolbar-pf-actions">
+          <div class="form-group toolbar-pf-filter">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li class="selected"><a href="#">Name</a></li>
+                  <li><a href="#">Type</a></li>
+                  <li><a href="#">Color</a></li>
+                </ul>
+              </div>
+              <input type="text" class="form-control" id="filter" placeholder="Filter By Name...">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="dropdown btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li class="selected"><a href="#">Name</a></li>
+                <li><a href="#">Type</a></li>
+                <li><a href="#">Last Modified</a></li>
+              </ul>
+            </div>
+            <button class="btn btn-link" type="button">
+              <span class="fa fa-sort-alpha-asc"></span>
+            </button>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-default" type="button">Action</button>
+            <button class="btn btn-default" type="button">Action</button>
+          </div>
+          <div class="toolbar-pf-action-right">
+            <div class="form-group toolbar-pf-view-selector">
+              <button class="btn btn-link" (click)="searchDevices()"><i class="fa fa-refresh"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="list-group list-view-pf list-view-pf-view">
+    <div class="list-group-item" *ngFor="let device of devices | async">
+      <div class="list-group-item-header">
+        <div class="list-view-pf-expand hidden">
+          <span class="fa fa-angle-right"></span>
+        </div>
+        <div class="list-view-pf-checkbox">
+          <input type="checkbox">
+        </div>
+        <div class="list-view-pf-actions">
+          <a class="btn btn-default" [routerLink]="['/objects', device.id]">Browse</a>
+          <div class="dropdown pull-right dropdown-kebab-pf">
+            <button class="btn btn-link dropdown-toggle" type="button" id="dropdownKebabRight9" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="fa fa-ellipsis-v"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight9">
+              <li><a href="#">Synchronize Time</a></li>
+              <li><a href="#">Enable/Disable Communication</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Restart Device</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="list-view-pf-main-info">
+          <div class="list-view-pf-left">
+            <span class="pficon pficon-resource-pool list-view-pf-icon-sm"></span>
+          </div>
+          <div class="list-view-pf-body">
+            <div class="list-view-pf-description">
+              <div class="list-group-item-heading">
+                {{ device.name }}
+              </div>
+              <div class="list-group-item-text">
+                {{ device.description }}
+              </div>
+            </div>
+            <div class="list-view-pf-additional-info">
+              <div class="list-view-pf-additional-info-item">
+                <span class="fa fa-tag"></span>
+                <strong>{{ device.deviceId }}</strong> Device-ID
+              </div>
+              <div class="list-view-pf-additional-info-item">
+                <span class="pficon pficon-network"></span>
+                <strong>{{ device.address }}</strong> IP
+              </div>
+              <div class="list-view-pf-additional-info-item">
+                <span class="pficon pficon-enterprise"></span>
+                <strong>{{ device.vendorId }}</strong> Company
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blank-slate-pf" *ngIf="(devices | async)?.length === 0">
+  <div class="blank-slate-pf-icon">
+    <span class="fa fa-search"></span>
+  </div>
+  <h1>
+    No Devices Found
+  </h1>
+  <p>
+    There seems to be no BACnet device in this specific network.
+    Ensure that all devices are connected to the network and are able to communicate.
+  </p>
+  <p>
+    Read more in the <a href="open('https://github.com/fh1ch/vitogee-bacnet-toolkit')">FAQs</a> about possible solutions.
+  </p>
+  <div class="blank-slate-pf-main-action">
+    <button class="btn btn-primary btn-lg" (click)="searchDevices()">Refresh</button>
+  </div>
+</div>

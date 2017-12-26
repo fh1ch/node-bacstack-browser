@@ -1,27 +1,81 @@
-# NodeBacstackBrowser
+# Node BACstack Browser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
+A BACnet browser using [Electron](https://electronjs.org/), [Angular](https://angular.io/)
+and [Node BACstack](https://github.com/fh1ch/node-bacstack).
 
-## Development server
+[![](https://travis-ci.org/fh1ch/node-bacstack-browser.svg?branch=master)](https://travis-ci.org/fh1ch/node-bacstack-browser)
+[![](https://coveralls.io/repos/fh1ch/node-bacstack-browser/badge.svg?branch=master)](https://coveralls.io/r/fh1ch/node-bacstack-browser?branch=master)
+[![](https://codeclimate.com/github/fh1ch/node-bacstack-browser/badges/gpa.svg)](https://codeclimate.com/github/fh1ch/node-bacstack-browser)
+[![](https://david-dm.org/fh1ch/node-bacstack-browser/status.svg)](https://david-dm.org/fh1ch/node-bacstack-browser)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> **Note:** This is an early prototype and shall not be considered as stable.
+> Use it with caution and at your own risk!
 
-## Code scaffolding
+![](images/overview.gif)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+Start Node BACstack Browser by using:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+``` sh
+git clone https://github.com/fh1ch/node-bacstack-browser.git
 
-## Running unit tests
+cd node-bacstack-browser
+npm i
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+npm start
+```
 
-## Running end-to-end tests
+> **Note:** If the application window appears as a blank page, force refresh the
+> page using F5 (Windows) or CMD+R (OSX).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Contributing
 
-## Further help
+Any help is appreciated, from creating issues, to contributing documentation,
+fixing issues and adding new features.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Please follow the best-practice contribution guidelines as mentioned below when
+submitting any changes.
+
+### Conventional Changelog
+
+This module has a changelog which is automatically generated based on Git commit
+messages. This mechanism requires that all commit messages comply with the
+[Conventional Changelog](https://github.com/bcoe/conventional-changelog-standard/blob/master/convention.md).
+You can check if your commit messages complies with those guidelines by using:
+
+``` sh
+npm run changelog
+```
+
+### Code Style
+
+This module uses [TSLint](https://palantir.github.io/tslint/) with the
+[Angular-CLI](https://github.com/angular/angular-cli) default settings for code
+linting. You can test if your changes comply with the code style by executing:
+
+``` sh
+npm run lint
+```
+
+### Testing and Coverage
+
+Testing is done using [Karama](https://karma-runner.github.io/)
+and [Protractor](http://www.protractortest.org/), both provided by the
+[Angular-CLI](https://github.com/angular/angular-cli).
+
+The test-coverage is automatically calculated using [Istanbul](https://istanbul.js.org/).
+Running the tests and calculating the coverage can be done locally by executing:
+
+``` sh
+npm run test && npm run e2e
+```
+
+It is expected that new features or fixes do not negatively impact the test
+results or the coverage.
+
+## License
+
+[The MIT License](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2017 Fabio Huser <fabio@fh1.ch>
