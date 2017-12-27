@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pack": "npm run build && electron-packager . --platform=darwin --arch=x64 --overwrite --out=bin"
+    "pack": "npm run build && electron-packager . --platform=darwin,win32,linux --arch=x64 --overwrite --out=bin"
   },
   "repository": {
     "type": "git",
