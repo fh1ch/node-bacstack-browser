@@ -1,6 +1,6 @@
 {
   "name": "node-bacstack-browser",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.0",
   "description": "A BACnet browser using Electron, Angular and Node BACstack.",
   "main": "main.js",
   "scripts": {
