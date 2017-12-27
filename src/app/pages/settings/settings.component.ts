@@ -10,10 +10,7 @@ import { ApiService } from '../../services/api.service';
 export class SettingsComponent implements OnInit {
   constructor(private api: ApiService) { }
 
-  nics = [
-    {name: 'en0 - 192.168.178.3', id: '12'},
-    {name: 'lo0 - 127.0.0.1', id: '13'}
-  ];
+  nics = [];
 
   ports = [
     {name: 'BAC0', value: 47808},
@@ -49,8 +46,11 @@ export class SettingsComponent implements OnInit {
   statusMessage: any;
 
   ngOnInit() {
-    this.api.getSettings().subscribe(res => {
-      this.settings = res;
+    this.api.getNics().subscribe(res1 => {
+      this.nics = res1;
+      this.api.getSettings().subscribe(res2 => {
+        this.settings = res2;
+      });
     });
   }
 

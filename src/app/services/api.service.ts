@@ -15,6 +15,10 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/devices/search`);
   }
 
+  getNics(): any {
+    return this.http.get(`${this.baseUrl}/settings/interfaces`);
+  }
+
   getSettings(): any {
     return this.http.get(`${this.baseUrl}/settings`);
   }

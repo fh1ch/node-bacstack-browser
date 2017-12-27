@@ -10,7 +10,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pack": "npm run build && electron-packager . --platform=darwin --arch=x64 --overwrite --out=bin"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
     "@angular/router": "^5.0.0",
     "async": "^2.6.0",
     "bacstack": "0.0.1-beta.13",
+    "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
     "debug": "^3.1.0",
     "express": "^4.16.2",
@@ -72,6 +74,7 @@
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "electron": "^1.7.10",
+    "electron-packager": "^10.1.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",

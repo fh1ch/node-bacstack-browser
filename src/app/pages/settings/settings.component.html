@@ -24,7 +24,7 @@
     <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true" title="" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <a href='#'>dolore magna aliqua</a>." data-placement="top"><span class="fa fa-info-circle"></span></a></label>
     <div class="col-sm-9">
       <select id="help-2" class="combobox form-control" [(ngModel)]="settings.nic" (change)="saveSettings()">
-        <option *ngFor="let nic of nics" value="{{ nic.id }}">{{ nic.name }}</option>
+        <option *ngFor="let nic of nics; let i = index" value="{{ i }}">{{ nic.name }} - {{ nic.address || '1.1.1.1' }}</option>
       </select>
     </div>
   </div>
