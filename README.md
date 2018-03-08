@@ -13,7 +13,7 @@ and [Node BACstack](https://github.com/fh1ch/node-bacstack).
 
 ![](images/overview.gif)
 
-## Usage
+## Quickstart
 
 Start Node BACstack Browser by using:
 
@@ -22,12 +22,33 @@ git clone https://github.com/fh1ch/node-bacstack-browser.git
 
 cd node-bacstack-browser
 npm i
-
+npm run build
 npm start
 ```
 
 > **Note:** If the application window appears as a blank page, force refresh the
 > page using F5 (Windows) or CMD+R (OSX).
+
+## Developing 
+
+in main.js switch the loadURL
+
+```js
+  win.loadURL('http://localhost:4200');
+
+  // win.loadURL(url.format({
+  //   pathname: path.join(__dirname, 'dist' , 'index.html'),
+  //   protocol: 'file:',
+  //   slashes: true
+  // }));
+```
+
+then start without building
+
+``` 
+npm i 
+npm start
+```
 
 ## Contributing
 
