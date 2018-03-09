@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { SettingsComponent } from './settings.component';
+import { ApiService } from '../../services/api.service';
 
 describe('SettingsComponent', () => {
   let component: SettingsComponent;
@@ -8,7 +11,9 @@ describe('SettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ]
+      imports: [ FormsModule, HttpClientTestingModule ],
+      declarations: [ SettingsComponent ],
+      providers: [ ApiService ]
     })
     .compileComponents();
   }));
