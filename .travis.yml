@@ -24,6 +24,6 @@ script:
   - "commitlint-travis"
   - "npm run lint"
   - "npm run test-travis"
-  - "cat ./reports/coverage/lcov.info | ./node_modules/.bin/coveralls"
+  - "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
 
 sudo: false

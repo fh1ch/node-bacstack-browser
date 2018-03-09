@@ -17,13 +17,13 @@ module.exports = function (config) {
       useIframe: false // launch in a new windows instead of iframe so nodeIntegration will work.
     },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
+      reports: [ 'text-summary' ],
       fixWebpackSourcePaths: true
     },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

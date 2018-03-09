@@ -7,13 +7,13 @@ module.exports = function (config) {
   // travis-ci specific overrides.
   config.set({
     coverageIstanbulReporter: {
-      reports: ['lcovonly'],
+      reports: ['lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage-istanbul'],
     port: 9876,
     logLevel: config.LOG_INFO,
     autoWatch: false,

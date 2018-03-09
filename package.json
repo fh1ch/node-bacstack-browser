@@ -8,8 +8,8 @@
     "ng": "ng",
     "start": "electron . | ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
-    "test-travis": "ng test -c travis.karma.conf.js",
+    "test": "ng test --cc",
+    "test-travis": "ng test -c travis.karma.conf.js --cc",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pack": "npm run build && electron-packager . --platform=darwin,win32,linux --arch=x64 --overwrite --out=bin"
