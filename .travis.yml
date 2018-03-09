@@ -13,6 +13,13 @@ matrix:
 before_install:
   - "npm install coveralls"
 
+before_script:
+  # Generate a virtual framebuffer X server to collect Electron windows
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  # Wait for Xvfb to start
+  - sleep 3
+
 script:
   - "commitlint-travis"
   - "npm run lint"
