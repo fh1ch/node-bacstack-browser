@@ -4,6 +4,12 @@ node_js:
   - "8"
   - "6"
 
+  # fail buils early.
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: "9"
+
 before_install:
   - "npm install coveralls"
 
