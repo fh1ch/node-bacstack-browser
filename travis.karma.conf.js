@@ -1,34 +1,24 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
-
+const baseConfig = require('./karma.conf');
 module.exports = function (config) {
+  // apply base config.
+  baseConfig(config);
+  // travis-ci specific overrides.
   config.set({
-    basePath: '',
-    frameworks: ['jasmine', '@angular/cli'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma')
-    ],
-    client:{
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
     coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
+      reports: ['lcovonly'],
       fixWebpackSourcePaths: true
     },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress'],
     port: 9876,
-    colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['ChromeHeadlessNoSandbox'],
-    singleRun: false,
+    singleRun: true,
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
