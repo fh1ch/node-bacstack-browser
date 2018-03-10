@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ObjectsComponent } from './objects.component';
+import { ApiService } from '../../services/api.service';
 
 describe('ObjectsComponent', () => {
   let component: ObjectsComponent;
@@ -8,7 +11,9 @@ describe('ObjectsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ObjectsComponent ]
+      imports: [ RouterTestingModule, HttpClientTestingModule ],
+      declarations: [ ObjectsComponent ],
+      providers: [ ApiService ]
     })
     .compileComponents();
   }));
